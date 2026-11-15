@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ═══════════ META / SEO ═══════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Maestro Creador — del Taller al Aula</title>
+  <meta name="description" content="Profesor de ciencias exactas y naturales y técnico experto en oficios: electricidad, carpintería, plomería, electrónica y más. Clases, talleres y servicios técnicos." />
+  <meta property="og:title" content="El Maestro Creador — del Taller al Aula" />
+  <meta property="og:description" content=" que se construye con las manos: servicios técnicos y clases de ciencias." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS vía CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+
+    /* Glow pulsante para los CTA del hero */
+    @keyframes glow-amber {
+      0%, 100% { box-shadow: 0 0 18px rgba(245, 158, 11, .45); }
+      50%      { box-shadow: 0 0 34px rgba(245, 158, 11, .75); }
+    }
+    @keyframes glow-violet {
+      0%, 100% { box-shadow: 0 0 18px rgba(139, 92, 246, .45); }
+      50%      { box-shadow: 0 0 34px rgba(139, 92, 246, .75); }
+    }
+    .cta-glow-amber  { animation: glow-amber 2.4s ease-in-out infinite; }
+    .cta-glow-violet { animation: glow-violet 2.4s ease-in-out infinite; }
+
+    /* Animación de entrada al hacer scroll */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Transición suave del filtro del portafolio */
+    .portfolio-card { transition: opacity .4s ease, transform .4s ease; }
+    .portfolio-card.hidden-card { opacity: 0; transform: scale(.92); display: none; }
+  </style>
+</head>
+
+<body class="bg-[#0f1115] text-gray-200 antialiased">
+
+  <!-- ═══════════ 1. NAVBAR ═══════════ -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-[#0f1115]/80 backdrop-blur border-b border-white/10">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#inicio" class="font-extrabold text-lg">
+        <span class="text-amber-400">El Maestro</span><span class="text-violet-400"> Creador</span>
+      </a>
+
+      <!-- Enlaces escritorio -->
+      <ul class="hidden md:flex items-center gap-6 text-sm font-semibold">
+        <li><a href="#inicio" class="hover:text-amber-400 transition">Inicio</a></li>
+        <li><a href="#servicios" class="hover:text-amber-400 transition">Servicios</a></li>
+        <li><a href="#portafolio" class="hover:text-violet-400 transition">Portafolio</a></li>
+        <li><a href="#testimonios" class="hover:text-violet-400 transition">Testimonios</a></li>
+        <li><a href="#contacto" class="hover:text-violet-400 transition">Contacto</a></li>
+        <li><a href="#catálogo" class="hover:text-violet-400 transition">Catálogo</a></li>
+      </ul>
+
+      <a href="#contacto" class="hidden md:inline-block bg-amber-500 hover:bg-amber-400 text-black font-bold text-sm px-4 py-2 rounded-2xl shadow-lg transition">
+        Contactar
+      </a>
+
+      <!-- Botón hamburguesa (móvil) -->
+      <button id="btn-menu" aria-label="Abrir menú" aria-expanded="false"
+              class="md:hidden p-2 rounded-xl hover:bg-white/10 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Menú móvil desplegable -->
+    <div id="menu-movil" class="hidden md:hidden px-4 pb-4">
+      <ul class="flex flex-col gap-3 text-sm font-semibold">
+        <li><a href="#inicio" class="block py-2 hover:text-amber-400">Inicio</a></li>
+        <li><a href="#servicios" class="block py-2 hover:text-amber-400">Servicios</a></li>
+        <li><a href="#portafolio" class="block py-2 hover:text-violet-400">Portafolio</a></li>
+        <li><a href="#testimonios" class="block py-2 hover:text-violet-400">Testimonios</a></li>
+        <li><a href="#contacto" class="block py-2 hover:text-violet-400">Contacto</a></li>
+        <li><a href="#contacto" class="bg-amber-500 text-black font-bold text-center px-4 py-2 rounded-2xl">Contactar</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════ 2. HERO ═══════════ -->
+    <section id="inicio" class="max-w-6xl mx-auto px-4 pt-32 pb-20 text-center reveal">
+      <!-- Avatar con iniciales -->
+      <div class="mx-auto mb-8 w-28 h-28 rounded-full bg-gradient-to-br from-amber-500 to-violet-600 flex items-center justify-center shadow-xl">
+        <span class="text-4xl font-extrabold text-white">MC</span>
+      </div>
+
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+        Del taller al aula: <br class="hidden md:block" />
+        <span class="bg-gradient-to-r from-amber-400 to-violet-400 bg-clip-text text-transparent">
+          conocimiento que se construye con las manos
+        </span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl mx-auto text-gray-400 text-lg">
+        Profesor de ciencias exactas y naturales, y técnico experto en oficios:
+        electricidad, carpintería, plomería, electrónica, seguridad y más.
+      </p>
+
+      <!-- Botones CTA -->
+      <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#servicios"
+           class="cta-glow-amber bg-amber-500 hover:bg-amber-400 text-black font-bold px-8 py-4 rounded-2xl transition">
+          🔧 Servicios Técnicos
+        </a>
+        <a href="#academicos"
+           class="cta-glow-violet bg-violet-600 hover:bg-violet-500 text-white font-bold px-8 py-4 rounded-2xl transition">
+          🎓 Clases y Talleres
+        </a>
+      </div>
+
+      <!-- Insignias -->
+      <div class="mt-10 flex flex-wrap justify-center gap-3 text-sm">
+        <span class="px-4 py-2 squard-full bg-white/5 border border-white/10">⚙️ +15 oficios dominados</span>
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">📚 4 asignaturas</span>
+        <span class="px-4 py-2 rounded-full bg-white/5 border border-white/10">🛠️ Prototipos didácticos a medida</span>
+      </div>
+    </section>
+
+    <!-- ═══════════ 3. SERVICIOS TÉCNICOS (ámbar) ═══════════ -->
+    <section id="servicios" class="max-w-6xl mx-auto px-4 py-20 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">
+        Servicios <span class="text-amber-400">Técnicos</span>
+      </h2>
+      <p class="mt-3 text-center text-gray-400">Soluciones prácticas y honestas, hechas con las manos.</p>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Tarjeta -->
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-amber-500/20 transition">
+          <div class="text-4xl">⚡</div>
+          <h3 class="mt-4 font-bold text-amber-400">Electricidad y cercas eléctricas</h3>
+          <p class="mt-2 text-sm text-gray-400">Instalaciones seguras y cercas para tu hogar o negocio.</p>
+        </article>
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-amber-500/20 transition">
+          <div class="text-4xl">📹</div>
+          <h3 class="mt-4 font-bold text-amber-400">Cámaras de seguridad</h3>
+          <p class="mt-2 text-sm text-gray-400">CCTV instalado y configurado desde cero.</p>
+        </article>
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-amber-500/20 transition">
+          <div class="text-4xl">🪵</div>
+          <h3 class="mt-4 font-bold text-amber-400">Carpintería y juguetes de madera</h3>
+          <p class="mt-2 text-sm text-gray-400">Muebles, arreglos y juguetes artesanales duraderos.</p>
+        </article>
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-amber-500/20 transition">
+          <div class="text-4xl">🚰</div>
+          <h3 class="mt-4 font-bold text-amber-400">Plomería y gas</h3>
+          <p class="mt-2 text-sm text-gray-400">Instalaciones y reparaciones con protocolos de seguridad.</p>
+        </article>
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-amber-500/20 transition">
+          <div class="text-4xl">🔌</div>
+          <h3 class="mt-4 font-bold text-amber-400">Electrónica y reparaciones</h3>
+          <p class="mt-2 text-sm text-gray-400">Diagnóstico y reparación de equipos y circuitos.</p>
+        </article>
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-amber-500/20 transition">
+          <div class="text-4xl">🧱</div>
+          <h3 class="mt-4 font-bold text-amber-400">Albañilería menor, gypsum y cerámica</h3>
+          <p class="mt-2 text-sm text-gray-400">Acabados limpios para espacios que se ven y se sienten bien.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════ 4. SERVICIOS ACADÉMICOS (violeta) ═══════════ -->
+    <section id="academicos" class="max-w-6xl mx-auto px-4 py-20 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">
+        Servicios <span class="text-violet-400">Académicos</span>
+      </h2>
+      <p class="mt-3 text-center text-gray-400">Ciencias que se entienden porque se tocan, se arman y se prueban.</p>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-violet-500/20 transition">
+          <div class="text-xl">🧪</div>
+          <h3 class="mt-4 font-bold text-violet-400">Clases de Física, Química, Matemáticas y Biología</h3>
+          <p class="mt-2 text-sm text-gray-400">Todos los niveles, con enfoque práctico y paciencia real.</p>
+        </article>
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-violet-500/20 transition">
+          <div class="text-4xl">🛠️</div>
+          <h3 class="mt-4 font-bold text-violet-400">Prototipos y maquetas didácticas</h3>
+          <p class="mt-2 text-sm text-gray-400">Modelos funcionales hechos a medida para escuelas.</p>
+        </article>
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-violet-500/20 transition">
+          <div class="text-4xl">🤝</div>
+          <h3 class="mt-4 font-bold text-violet-400">Talleres prácticos "hazlo tú mismo"</h3>
+          <p class="mt-2 text-sm text-gray-400">Para jóvenes y adultos: aprender haciendo de verdad.</p>
+        </article>
+        <article class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 hover:shadow-violet-500/20 transition">
+          <div class="text-4xl">🏆</div>
+          <h3 class="mt-4 font-bold text-violet-400">Asesoría para ferias de ciencias</h3>
+          <p class="mt-2 text-sm text-gray-400">Desde la idea hasta el proyecto escolar ganador.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════ 5. PORTAFOLIO (filtro interactivo) ═══════════ -->
+    <section id="portafolio" class="max-w-6xl mx-auto px-4 py-20 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Portafolio</h2>
+      <p class="mt-3 text-center text-gray-400">Trabajos reales que enseñan y sirven.</p>
+
+      <!-- Barra de filtros -->
+      <div class="mt-10 flex justify-center gap-3" role="group" aria-label="Filtros de portafolio">
+        <button data-filtro="todo"      class="filtro-btn bg-amber-500 text-black font-bold px-5 py-2 rounded-2xl transition">Todo</button>
+        <button data-filtro="oficios"   class="filtro-btn bg-white/5 border border-white/10 px-5 py-2 rounded-2xl hover:bg-white/10 transition">Oficios</button>
+        <button data-filtro="academico" class="filtro-btn bg-white/5 border border-white/10 px-5 py-2 rounded-2xl hover:bg-white/10 transition">Académico</button>
+      </div>
+
+      <!-- Tarjetas del portafolio -->
+      <div id="grid-portafolio" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <article data-cat="academico" class="portfolio-card rounded-2xl overflow-hidden border border-white/10 bg-[#171a21] hover:-translate-y-1 transition">
+          <div class="h-40 bg-gradient-to-br from-violet-700/40 to-[#0f1115] flex items-center justify-center text-6xl" role="img" aria-label="Prototipo de circuito didáctico">💡</div>
+          <p class="p-4 font-semibold">Prototipo de circuito didáctico</p>
+        </article>
+        <article data-cat="oficios" class="portfolio-card rounded-2xl overflow-hidden border border-white/10 bg-[#171a21] hover:-translate-y-1 transition">
+          <div class="h-40 bg-gradient-to-br from-amber-700/40 to-[#0f1115] flex items-center justify-center text-6xl" role="img" aria-label="Casa de madera artesanal">🏠</div>
+          <p class="p-4 font-semibold">Casa de madera artesanal</p>
+        </article>
+        <article data-cat="oficios" class="portfolio-card rounded-2xl overflow-hidden border border-white/10 bg-[#171a21] hover:-translate-y-1 transition">
+          <div class="h-40 bg-gradient-to-br from-amber-600/30 to-[#0f1115] flex items-center justify-center text-6xl" role="img" aria-label="Instalación de CCTV">🎥</div>
+          <p class="p-4 font-semibold">Instalación de CCTV</p>
+        </article>
+        <article data-cat="academico" class="portfolio-card rounded-2xl overflow-hidden border border-white/10 bg-[#171a21] hover:-translate-y-1 transition">
+          <div class="h-40 bg-gradient-to-br from-violet-600/30 to-[#0f1115] flex items-center justify-center text-6xl" role="img" aria-label="Maqueta del sistema solar">🪐</div>
+          <p class="p-4 font-semibold">Maqueta del sistema solar</p>
+        </article>
+        <article data-cat="oficios" class="portfolio-card rounded-2xl overflow-hidden border border-white/10 bg-[#171a21] hover:-translate-y-1 transition">
+          <div class="h-40 bg-gradient-to-br from-yellow-600/30 to-[#0f1115] flex items-center justify-center text-6xl" role="img" aria-label="Cerca eléctrica residencial">🌩️</div>
+          <p class="p-4 font-semibold">Cerca eléctrica residencial</p>
+        </article>
+        <article data-cat="academico" class="portfolio-card rounded-2xl overflow-hidden border border-white/10 bg-[#171a21] hover:-translate-y-1 transition">
+          <div class="h-40 bg-gradient-to-br from-purple-600/30 to-[#0f1115] flex items-center justify-center text-6xl" role="img" aria-label="Juguete didáctico de engranajes">⚙️</div>
+          <p class="p-4 font-semibold">Juguete didáctico de engranajes</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ═══════════ 6. TESTIMONIOS ═══════════ -->
+    <section id="testimonios" class="max-w-6xl mx-auto px-4 py-20 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Testimonios</h2>
+      <p class="mt-3 text-center text-gray-400">Lo que dicen quienes ya trabajaron conmigo.</p>
+
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <figure class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 transition">
+          <div class="text-amber-400 text-lg" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="mt-4 text-gray-300">"Mi hijo pasó de odiar la física a querer construir sus propios circuitos. El profesor tiene una paciencia enorme."</blockquote>
+          <figcaption class="mt-4 text-sm font-bold text-amber-400">— Carlos M., padre de familia</figcaption>
+        </figure>
+        <figure class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 transition">
+          <div class="text-amber-400 text-lg" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="mt-4 text-gray-300">"Las maquetas didácticas transformaron nuestras clases de ciencias. Los estudiantes ahora entienden viendo y tocando."</blockquote>
+          <figcaption class="mt-4 text-sm font-bold text-violet-400">— Dra. Rita Salas, directora de colegio</figcaption>
+        </figure>
+        <figure class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg hover:-translate-y-1 transition">
+          <div class="text-amber-400 text-lg" aria-label="5 estrellas">★★★★★</div>
+          <blockquote class="mt-4 text-gray-300">"Instaló las cámaras y la cerca eléctrica en dos días. Trabajo limpio, precio justo y todo quedó funcionando perfecto."</blockquote>
+          <figcaption class="mt-4 text-sm font-bold text-amber-400">— Jorge P., cliente de instalación</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ═══════════ 7. CONTACTO ═══════════ -->
+    <section id="contacto" class="max-w-6xl mx-auto px-4 py-20 reveal">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">¿En qué te ayudo hoy?</h2>
+
+      <div class="mt-12 grid gap-8 lg:grid-cols-2">
+        <!-- Formulario -->
+        <form id="form-contacto" class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg space-y-4" novalidate>
+          <div>
+            <label for="nombre" class="block text-sm font-semibold mb-1">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required placeholder="Tu nombre"
+                   class="w-full bg-[#0f1115] border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-amber-400" />
+          </div>
+          <div>
+            <label for="contacto-user" class="block text-sm font-semibold mb-1">Email o WhatsApp</label>
+            <input id="contacto-user" name="contacto" type="text" required placeholder="tucorreo@ejemplo.com o +57 300 000 0000"
+                   class="w-full bg-[#0f1115] border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-violet-400" />
+          </div>
+          <div>
+            <label for="motivo" class="block text-sm font-semibold mb-1">Motivo</label>
+            <select id="motivo" name="motivo"
+                    class="w-full bg-[#0f1115] border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-violet-400">
+              <option value="tecnico">Servicio técnico</option>
+              <option value="clases">Clases</option>
+              <option value="prototipo">Prototipo a medida</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div>
+            <label for="mensaje" class="block text-sm font-semibold mb-1">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntame qué necesitas..."
+                      class="w-full bg-[#0f1115] border border-white/10 rounded-2xl px-4 py-3 focus:outline-none focus:border-amber-400"></textarea>
+          </div>
+          <button type="submit"
+                  class="w-full bg-amber-500 hover:bg-amber-400 text-black font-bold py-3 rounded-2xl transition shadow-lg">
+            Enviar solicitud
+          </button>
+        </form>
+
+        <!-- Datos de contacto directos -->
+        <aside class="bg-[#171a21] rounded-2xl p-6 border border-white/10 shadow-lg h-fit">
+          <h3 class="font-bold text-lg">Contacto directo</h3>
+          <ul class="mt-4 space-y-4 text-gray-300">
+            <li class="flex items-center gap-3"><span class="text-2xl">📱</span> WhatsApp: +57 300 123 4567</li>
+            <li class="flex items-center gap-3"><span class="text-2xl">✉️</span> hola@elmaestrocreador.com</li>
+            <li class="flex items-center gap-3"><span class="text-2xl">🕘</span> Lun–Sáb · 8:00 a.m. – 6:00 p.m.</li>
+          </ul>
+          <p class="mt-6 text-sm text-gray-500">Respondo normalmente el mismo día. Si es urgente, escríbeme por WhatsApp.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════ 8. FOOTER ═══════════ -->
+  <footer class="border-t border-white/10 bg-black/40">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid gap-8 md:grid-cols-3">
+      <div>
+        <p class="font-extrabold"><span class="text-amber-400">El Maestro</span><span class="text-violet-400"> Creador</span></p>
+        <p class="mt-2 text-sm text-gray-500">Del taller al aula.</p>
+      </div>
+      <nav aria-label="Enlaces del pie">
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="#inicio" class="hover:text-amber-400">Inicio</a></li>
+          <li><a href="#servicios" class="hover:text-amber-400">Servicios</a></li>
+          <li><a href="#portafolio" class="hover:text-violet-400">Portafolio</a></li>
+          <li><a href="#contacto" class="hover:text-violet-400">Contacto</a></li>
+        </ul>
+      </nav>
+      <div>
+        <div class="flex gap-4" aria-label="Redes sociales">
+          <a href="#" aria-label="Facebook" class="hover:text-amber-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="hover:text-violet-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4a3.8 3.8 0 0 1-1.4-.9c-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.7a7.1 7.1 0 1 0 0 14.2 7.1 7.1 0 0 0 0-14.2zm0 2.5a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm7.4-3a1.7 1.7 0 1 1-3.4 0 1.7 1.7 0 0 1 3.4 0z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="hover:text-amber-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+          </a>
+        </div>
+        <p class="mt-4 text-xs text-gray-600">Hecho con orgullo y conocimientos reales © 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast de confirmación -->
+  <div id="toast" role="status" aria-live="polite"
+       class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-amber-500 text-black font-bold px-6 py-3 rounded-2xl shadow-xl opacity-0 pointer-events-none transition-opacity duration-300">
+    ¡Gracias! Tu solicitud fue enviada. Te respondo pronto. ✅
+  </div>
+
+  <script>
+    // ── Menú hamburguesa ──
+    const btnMenu = document.getElementById('btn-menu');
+    const menuMovil = document.getElementById('menu-movil');
+    btnMenu.addEventListener('click', () => {
+      const abierto = menuMovil.classList.toggle('hidden') === false;
+      btnMenu.setAttribute('aria-expanded', abierto);
+    });
+    // Cierra el menú al pulsar un enlace
+    menuMovil.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => menuMovil.classList.add('hidden'))
+    );
+
+    // ── Filtro del portafolio ──
+    const botonesFiltro = document.querySelectorAll('.filtro-btn');
+    const tarjetas = document.querySelectorAll('.portfolio-card');
+
+    botonesFiltro.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Estilo activo del botón
+        botonesFiltro.forEach(b => b.className =
+          'filtro-btn bg-white/5 border border-white/10 px-5 py-2 rounded-2xl hover:bg-white/10 transition');
+        btn.className = 'filtro-btn bg-amber-500 text-black font-bold px-5 py-2 rounded-2xl transition';
+
+        const filtro = btn.dataset.filtro;
+        tarjetas.forEach(card => {
+          const mostrar = filtro === 'todo' || card.dataset.cat === filtro;
+          card.classList.toggle('hidden-card', !mostrar);
+        });
+      });
+    });
+
+    // ── Animaciones de entrada al hacer scroll ──
+    const observador = new IntersectionObserver(entradas => {
+      entradas.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observador.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observador.observe(el));
+
+    // ── Toast del formulario (confirmación simulada) ──
+    const form = document.getElementById('form-contacto');
+    const toast = document.getElementById('toast');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      // Validación simple
+      const campos = form.querySelectorAll('[required]');
+      let valido = true;
+      campos.forEach(c => {
+        if (!c.value.trim()) {
+          valido = false;
+          c.classList.add('border-red-500');
+        } else {
+          c.classList.remove('border-red-500');
+        }
+      });
+      if (!valido) return;
+
+      toast.style.opacity = '1';
+      form.reset();
+      setTimeout(() => (toast.style.opacity = '0'), 3500);
+    });
+  </script>
+</body>
+</html>
